@@ -13,14 +13,28 @@ namespace u21429792_HW03.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult AboutMe()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Files()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Image()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
+        public ActionResult Video()
         {
             ViewBag.Message = "Your contact page.";
 

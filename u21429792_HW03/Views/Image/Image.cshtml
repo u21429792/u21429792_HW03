@@ -1,0 +1,26 @@
+﻿@using u21429792_HW03.Models
+@model List<FileModel>
+
+@{
+    ViewBag.Title = "Image Page";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <table class="table table-responsive table-bordered" colspan="1" id="table">
+        @foreach (FileModel image in Model)
+            {
+                <tr>
+                    <th>
+                    <img src="~/images/@image.FileName" width="360" height="240" />
+                    <p> @image.FileName </p>
+                     <br />
+                     <button type="button" class="btn btn-success">@Html.ActionLink("Download", "DownloadImage", new { filename = image.FileName })</button>
+                     <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteImage", new { filename = image.FileName })</button>
+                    </th>
+                </tr>
+            }            
+    </table>
+</div>
+

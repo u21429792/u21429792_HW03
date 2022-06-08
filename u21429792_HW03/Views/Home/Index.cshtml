@@ -1,4 +1,69 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "My Media";
 }
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
+<h4>@ViewBag.Message</h4>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Description</h3>
+            <p style="font-size:12px">
+                For this assignment you will be creating a media uploading system. <br />
+                Home page: The home page will have a form where users will need to select whether they want to upload a File, Image, or Video. Users will then be able to select the file on their computer which will then be uploaded on submit of the form. <br />
+                Files page: The files page must display a list of all the Files that a user has uploaded with the functionality to delete and download the file. <br />
+                Images page: The images page must display all the images (the images must be viewable) that the user uploaded, in an orderly way with the functionality to delete and download the images. <br />
+                Videos page: The videos page must display all the videos (the videos must be playable) that the user uploaded in an orderly way, with the functionality to delete and download the videos. <br />
+                About Me: The about me page should display a biography along with a picture (image) of yourself (this is helpful as this project will be uploaded to your GitHub repository that you will be able to share down the line). <br />
+                All the files you upload (files, images, and videos) should be stored in the main MVC project solution with the following folder structure:  <br />
+                > Media <br />
+                > Documents <br />
+                > Images <br />
+                > Videos
+            </p>
+
+        </div>
+        <div class="col-md-4">
+            <h4>Option Selection</h4>
+            <p>
+                @{
+                    if (IsPost)
+                    {
+
+                    }
+                }
+
+            </p>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form id="form1" method="post">
+                    <div>
+                        <table>
+                            <tr>
+                                <td><p style="font-size:12px">&nbsp;Document&nbsp;</p></td>
+                                <td><p style="font-size:12px"><input value="Document" name="uploadType" type="radio" /></p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p style="font-size:12px">&nbsp;Image&nbsp;</p></td>
+                                <td><p style="font-size:12px"><input value="Image" name="uploadType" type="radio" /></p></td>
+                            </tr>
+
+                            <tr>
+                                <td><p style="font-size:12px">&nbsp;Video&nbsp;</p></td>
+                                <td><p style="font-size:12px"><input value="Video" name="uploadType" type="radio" /></p></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="file" name="files" />
+                                    <br />
+                                    <input type="submit" value="Upload" />                                    
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            }
+            </div>
+    </div>
+</div>

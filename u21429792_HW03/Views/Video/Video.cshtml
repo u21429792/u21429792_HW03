@@ -1,0 +1,28 @@
+﻿@using u21429792_HW03.Models
+@model List<FileModel>
+
+@{
+    ViewBag.Title = "Video Page";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container p-5 my-5 border">
+    <table class="table table-responsive table-bordered" colspan="1" id="table">
+        @foreach (FileModel video in Model)
+        {
+            <tr>
+                <th>
+                    <video autoplay>
+                        <source src="~/videos/@video.FileName" type="video/mp4" width="360" height="240" />
+                    </video>
+                    <p> @video.FileName </p>
+                    <br />
+                    <button type="button" class="btn btn-success">@Html.ActionLink("Download", "DownloadVideo", new { filename = video.FileName })</button>
+                    <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "DeleteVideo", new { filename = video.FileName })</button>
+                </th>
+            </tr>
+        }
+        </table>
+</div>
+

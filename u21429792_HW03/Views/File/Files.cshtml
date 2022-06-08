@@ -1,0 +1,26 @@
+﻿@using u21429792_HW03.Models
+@model List<FileModel>
+
+
+@{
+    ViewBag.Title = "File Page";
+}
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <table class="table table-responsive table-bordered" id="table">
+        <tr>
+            <th> File Name</th>
+            <th> DOWNLOAD OPTION </th>
+            <th> DELETE OPTION </th>
+        </tr>
+        @foreach (FileModel file in Model)
+        {
+            <tr>
+                <td>@file.FileName</td>
+                <td><button type="button" class="btn btn-success"> @Html.ActionLink("Download", "DownloadFile", new { fileName = file.FileName }) </button></td>
+                <td><button type="button" class="btn btn-danger"> @Html.ActionLink("Delete", "DeleteFile", new { fileName = file.FileName }) </button></td>
+            </tr>
+        }
+    </table>
+</div>
